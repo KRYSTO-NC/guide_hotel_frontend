@@ -97,18 +97,18 @@
   margin: 0;
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 2rem 0; /* Example padding; adjust as needed */
+  padding: 2rem 1rem; /* Example padding; adjust as needed */
   margin: 0 -1px; /* Reset margins */
 }
 .previewAside ul a p {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
 }
 .previewAside ul a svg {
   width: 2rem;
-  height: 1rem;
+  height: 2rem;
 }
 
 .previewContent {
