@@ -15,9 +15,13 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+    div{
+ cursor: pointer;
+    }
     svg {
       height: 3rem;
       width: 2rem;
+      cursor: pointer;
     }
   }
   .part2 {
@@ -130,6 +134,7 @@
 
 .activeprevLink {
 
-    color: black !important ;
+  color: #242629 !important;
+  
     background-color: #87cefa
   }

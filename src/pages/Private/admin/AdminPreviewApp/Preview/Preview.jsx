@@ -2,26 +2,24 @@ import {
   FaAmbulance,
   FaBell,
   FaBicycle,
-  FaClock,
+
   FaCloudSun,
   FaConciergeBell,
   FaEnvelope,
-  FaEtsy,
+
   FaHamburger,
   FaHotel,
   FaLandmark,
   FaPlaneArrival,
   FaPlaneDeparture,
-  FaRegClock,
-  FaServicestack,
+
   FaStore,
-  FaTable,
-  FaTachometerAlt,
+
   FaUtensilSpoon,
 } from 'react-icons/fa'
 import './preview.css'
 import { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link} from 'react-router-dom'
 import Arrival from './Arrival/Arrival'
 import Services from './Services/Services'
 import Urgences from './Urgences/Urgences'
@@ -33,21 +31,22 @@ import Restaurant from './Restaurant/Restaurant'
 import FoodProximity from './FoodProximity/FoodProximity'
 import Departure from './Departure/Departure'
 import frenchDrap from '../../../../../assets/fr-drap.png'
+import Welcome from './Welcome/Welcome'
 
 function Preview() {
-  const [activeComponent, setActiveComponent] = useState('default')
+  const [activeComponent, setActiveComponent] = useState('welcome')
 
   const handleLinkClick = (componentName) => {
     setActiveComponent(componentName)
   }
 
-  const location = useLocation()
+  
   return (
     <>
       <header className="headerPrev">
         <div className="part1">
-          <div>Votre logo</div>
-          <div>
+          <div onClick={() => handleLinkClick('welcome')} >Votre logo</div>
+          <div  onClick={() => handleLinkClick('welcome')} >
             <FaHotel />
           </div>
         </div>
@@ -70,8 +69,8 @@ function Preview() {
             <hr />
             <li>
             <Link 
-              onClick={() => handleLinkClick('default')} 
-              className={activeComponent === 'default' ? 'activeprevLink' : ''}  // Condition pour ajouter la classe
+              onClick={() => handleLinkClick('arrival')} 
+              className={activeComponent === 'arrival' ? 'activeprevLink' : ''}  // Condition pour ajouter la classe
             >
               <p>Votre arivée</p>
               <FaPlaneArrival />
@@ -157,7 +156,8 @@ function Preview() {
           </ul>
         </aside>
         <div className="previewContent">
-          {activeComponent === 'default' && <Arrival />}
+          {activeComponent === 'welcome' && <Welcome />}
+          {activeComponent === 'arrival' && <Arrival />}
           {activeComponent === 'urgences' && <Urgences />}
           {activeComponent === 'meteo' && <Meteo />}
           {activeComponent === 'tourisme' && <Tourisme />}

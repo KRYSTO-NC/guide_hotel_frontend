@@ -18,9 +18,13 @@
   align-items: center;
   justify-content: space-around;
 }
+.headerPrev .part1 div {
+  cursor: pointer;
+}
 .headerPrev .part1 svg {
   height: 3rem;
   width: 2rem;
+  cursor: pointer;
 }
 .headerPrev .part2 {
   width: 40%;
@@ -117,6 +121,6 @@
 }
 
 .activeprevLink {
-  color: black !important;
+  color: #242629 !important;
   background-color: #87cefa;
 }/*# sourceMappingURL=preview.css.map */
