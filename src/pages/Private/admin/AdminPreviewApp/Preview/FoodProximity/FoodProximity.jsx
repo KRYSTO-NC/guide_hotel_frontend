@@ -1,8 +1,11 @@
 import React from 'react'
+import HeaderSection from '../HeaderSection/HeaderSection'
 
 function FoodProximity() {
   return (
-    <div>Manger aux environs</div>
+    <div>
+      <HeaderSection title={'Manger aux environs'} />
+    </div>
   )
 }
 

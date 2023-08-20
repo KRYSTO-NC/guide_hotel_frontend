@@ -61,3 +61,8 @@
       color: $secondary;
     }
   }
+
+/* Style pour le lien actif */
+.admin-sidebar ul li a.activeLink {
+    color: $secondary;
+}

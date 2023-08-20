@@ -1,8 +1,14 @@
 import React from 'react'
+import HeaderSection from '../HeaderSection/HeaderSection'
 
 function LoisirProximity() {
   return (
-    <div>Loisirs aux environs</div>
+    <div>
+
+<HeaderSection title={'Loisirs aux environs'}/>
+
+
+    </div>
   )
 }
 

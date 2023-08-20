@@ -1,8 +1,12 @@
 import React from 'react'
+import HeaderSection from '../HeaderSection/HeaderSection'
 
 function Restaurant() {
   return (
-    <div>Notre restaurant</div>
+    <div>
+<HeaderSection title={'Notre restaurant'}/>
+
+    </div>
   )
 }
 

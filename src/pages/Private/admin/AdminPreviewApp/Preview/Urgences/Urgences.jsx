@@ -1,8 +1,12 @@
 import React from 'react'
+import HeaderSection from '../HeaderSection/HeaderSection'
 
 function Urgences() {
   return (
-    <div>Urgences</div>
+    <div>
+        
+        <HeaderSection title={'Urgences'}/>
+    </div>
   )
 }
 

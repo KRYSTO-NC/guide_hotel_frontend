@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import './adminSideBar.css'
 import {
   FaSignOutAlt,
@@ -10,6 +10,8 @@ import {
   FaCog,
 } from 'react-icons/fa'
 function AdminSideBar() {
+
+    const location = useLocation(); 
   return (
     <adide className="admin-sidebar">
       <div className="round-container">
@@ -20,7 +22,7 @@ function AdminSideBar() {
 
       <ul>
         <li>
-          <Link to={'/admin/dashboard'}>
+        <Link to={'/admin/dashboard/home'} className={location.pathname === '/admin/dashboard/home' ? 'activeLink' : ''}>
             <FaHome className="sidebarIcon" />
           </Link>
           <Link to={'/admin/dashboard'}>

@@ -98,4 +98,9 @@ section {
 }
 .admin-sidebar ul li a:hover {
   color: rgb(210, 166, 90);
+}
+
+/* Style pour le lien actif */
+.admin-sidebar ul li a.activeLink {
+  color: rgb(210, 166, 90);
 }/*# sourceMappingURL=adminSideBar.css.map */

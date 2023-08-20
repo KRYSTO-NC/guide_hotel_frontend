@@ -1,8 +1,12 @@
 import React from 'react'
+import HeaderSection from '../HeaderSection/HeaderSection'
 
 function Services() {
   return (
-    <div>Services sur place</div>
+    <div>
+<HeaderSection title={'Services sur place'}/>
+        
+</div>
   )
 }
 

@@ -109,8 +109,14 @@
 
 .previewContent {
   padding: 10px;
+  flex: 1;
 }
 
 .hr {
   border: 2px solid #7f9bac;
+}
+
+.activeprevLink {
+  color: black !important;
+  background-color: #87cefa;
 }/*# sourceMappingURL=preview.css.map */

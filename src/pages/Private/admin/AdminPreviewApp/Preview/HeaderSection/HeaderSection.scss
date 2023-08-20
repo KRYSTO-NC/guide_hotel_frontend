@@ -1,0 +1,39 @@
+.headerSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+height: 4rem;
+  width: 100%;
+}
+
+.backIcone{
+    display: flex;
+    align-items: center;
+    flex: 1;
+    font-size: 1.3rem;
+    svg{
+       
+        margin-right: 1rem;
+    }
+}
+
+
+.searchBarSectionContainer {
+    position: relative;  /* Ajouté */
+    width: 15rem;
+    input {
+        padding: 1rem 0.4rem;
+        padding-left: 2.5rem;  /* Pour éviter que le texte ne chevauche l'icône */
+        width: 100%;
+        border-radius: 0.5rem;
+    }
+
+    .searchIcon {
+        position: absolute;
+        left: 1rem;  /* Ajustez selon vos besoins */
+        top: 50%;
+        transform: translateY(-50%);  /* Centrer verticalement */
+        font-size: 1rem;
+    }
+}

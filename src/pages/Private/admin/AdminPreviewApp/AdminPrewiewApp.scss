@@ -28,7 +28,7 @@
 .btn-back-guide{
     position: absolute;
     top: 3rem;
-    left: 1rem; /* Ajoutez une propriété left pour le positionner depuis la gauche */
+    left: 30%; /* Ajoutez une propriété left pour le positionner depuis la gauche */
     z-index: 3; /* Assurez-vous que le bouton est au-dessus des autres éléments */
 }
 
@@ -50,3 +50,4 @@
     align-items: center;
     justify-content: space-between;
 }
+

@@ -1,8 +1,12 @@
 import React from 'react'
+import HeaderSection from '../HeaderSection/HeaderSection'
 
 function Departure() {
   return (
-    <div>Votre départ</div>
+    <div>
+<HeaderSection title={'Votre départ'}/>
+        
+        </div>
   )
 }
 

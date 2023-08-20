@@ -23,7 +23,7 @@ function AdminPrewiewApp() {
       
       <button
         className="btn btn-block btn-back-guide"
-        onClick={handleBackToGuide} // Utilisez la nouvelle fonction
+        onClick={handleBackToGuide} 
       >
         Retour au guide
       </button>
