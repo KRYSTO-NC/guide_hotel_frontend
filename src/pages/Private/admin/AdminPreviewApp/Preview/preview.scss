@@ -1,0 +1,128 @@
+.previewContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  color: #242629;
+}
+
+.headerPrev {
+  background-color: #87cefa;
+  display: flex;
+  height: 4rem;
+  .part1 {
+    background-color: #6a8ea4;
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    svg {
+      height: 3rem;
+      width: 2rem;
+    }
+  }
+  .part2 {
+    width: 40%;
+    background-color: #455965;
+    padding: 1rem;
+    text-transform: uppercase;
+  }
+  .part3 {
+    padding: 1rem;
+    display: flex;
+     flex:1;
+    align-items: center;
+    justify-content: space-around;
+  
+
+    svg{
+        height: 2rem;
+        width: 1.4rem;
+        color: #242629;
+    }
+    .french {
+      height: 1.6rem;
+      width: 2.5rem;
+
+      img{
+        height: 100%;
+        width: 100%;
+        box-sizing: border-box;
+      }
+    }
+  }
+}
+
+.previewAside {
+  height: 91%;
+  background-color: #6a8ea4;
+  width: 25%;
+  color: #242629;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    max-height: 100%; /* Assurez-vous que la ul ne dépasse pas sa hauteur maximale */
+    overflow-y: auto; /* Permettre le défilement vertical si le contenu dépasse la hauteur */
+    /* Styliser la barre de défilement pour Chrome, Safari, etc. */
+    &::-webkit-scrollbar {
+      width: 10px; /* Largeur de la barre de défilement */
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #455965; /* Couleur de la "poignée" de la barre de défilement */
+    }
+
+    /* Styliser la barre de défilement pour Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: #888 transparent; /* La couleur transparente pour le "track" masquera la barre de défilement sous-jacente */
+
+    li {
+      &:hover {
+        background-color: #87cefa;
+        a,
+        p {
+          /* Changement de couleur du texte du lien et du paragraphe lors du survol de la li */
+          color: black;
+        }
+      }
+
+      transition: background-color 0.3s;
+    }
+
+    a {
+      transition: color 0.3s;
+      color: white;
+      margin: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 100%;
+      padding: 2rem 0; /* Example padding; adjust as needed */
+      margin: 0 -1px; /* Reset margins */
+
+      p {
+        font-size: 0.8rem;
+      }
+
+      svg {
+        width: 2rem;
+        height: 1rem;
+      }
+    }
+  }
+}
+
+.previewContent {
+  padding: 10px;
+}
+
+
+.hr{
+   border: 2px solid #7f9bac;
+}

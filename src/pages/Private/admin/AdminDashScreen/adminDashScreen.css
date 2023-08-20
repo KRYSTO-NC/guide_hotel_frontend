@@ -1,0 +1,67 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,100;1,300&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62, 5%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: black;
+  font-size: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+p {
+  line-height: 1.7;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  line-height: 2.2;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+section {
+  color: #535266;
+}
+
+.admin-dashbord {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.dashboard-screen {
+  background-color: rgb(76, 78, 111);
+  height: 100vh;
+  width: 100%;
+  padding: 2rem;
+  color: rgb(255, 255, 255);
+  position: relative;
+}
+
+.dashboard-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centrage horizontal */
+  align-items: center; /* Centrage vertical */
+  height: 100vh; /* Prend toute la hauteur de la fenêtre */
+}/*# sourceMappingURL=adminDashScreen.css.map */

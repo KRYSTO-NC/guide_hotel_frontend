@@ -1,0 +1,24 @@
+@import '../../../../SASS/reset';
+@import '../../../../SASS/variables';
+
+
+.admin-dashbord{
+    display: flex;
+    flex-shrink: 0;
+}
+.dashboard-screen{
+    background-color: $primary;
+    height: 100vh;
+    width: 100%;
+    padding: 2rem;
+    color: $white;
+    position: relative;
+}
+
+.dashboard-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrage horizontal */
+    align-items: center; /* Centrage vertical */
+    height: 100vh; /* Prend toute la hauteur de la fenêtre */
+}

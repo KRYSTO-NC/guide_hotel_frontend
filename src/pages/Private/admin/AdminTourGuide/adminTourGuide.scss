@@ -1,0 +1,26 @@
+.admin-tour-guide-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding-bottom: 10px;
+  
+    .btn.disabled {
+      opacity: 0.6; // rend le bouton semi-transparent
+      cursor: not-allowed; // change le curseur pour montrer qu'il est désactivé
+    }
+}
+
+.tour-guide-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    overflow: hidden; /* Empêche le défilement */
+    height: 100%;
+ 
+}
+  
+.tour-guide-content {
+    flex: 1; /* Prend tout l'espace disponible */
+    overflow-y: auto; /* Si le contenu est trop long, cela permettra de faire défiler uniquement cette section */
+}

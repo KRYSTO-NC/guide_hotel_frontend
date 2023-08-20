@@ -1,0 +1,63 @@
+@import '../../../../SASS/reset';
+@import '../../../../SASS/variables';
+
+
+.admin-sidebar {
+    height: 100vh;
+    color: rgb(255, 255, 255);
+    width: 10rem;
+    background-color: $dark;
+    display: flex;
+
+    flex-direction: column;
+    padding-top: 1rem;
+}
+
+
+
+.round-container{
+    display: flex;
+    justify-content: center;
+    padding:  1rem 2rem;
+    height: 1rem;
+}
+.round{
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    margin: 0 0.3rem;
+
+}
+
+.red{
+    background-color: $red;
+}
+.yellow{
+    background-color: $purple;
+}
+.green{
+    background-color: $green;
+}
+
+
+.admin-sidebar ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.admin-sidebar ul li a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1rem;
+    margin: 5rem 0;
+
+    svg{
+        height: 2rem;
+        width: 2rem;
+    }
+
+    &:hover {
+      color: $secondary;
+    }
+  }

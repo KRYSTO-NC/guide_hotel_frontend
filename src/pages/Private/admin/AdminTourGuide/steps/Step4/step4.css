@@ -1,0 +1,27 @@
+.image-upload-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+input[type=file] {
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.image-preview {
+  margin-top: 1rem;
+  width: 200px;
+  height: 200px;
+  border: 2px dashed #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.image-preview img {
+  max-width: 100%;
+  max-height: 100%;
+}/*# sourceMappingURL=step4.css.map */

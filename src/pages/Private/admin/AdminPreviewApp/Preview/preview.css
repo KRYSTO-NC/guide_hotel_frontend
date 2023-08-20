@@ -1,0 +1,116 @@
+@charset "UTF-8";
+.previewContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  color: #242629;
+}
+
+.headerPrev {
+  background-color: #87cefa;
+  display: flex;
+  height: 4rem;
+}
+.headerPrev .part1 {
+  background-color: #6a8ea4;
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.headerPrev .part1 svg {
+  height: 3rem;
+  width: 2rem;
+}
+.headerPrev .part2 {
+  width: 40%;
+  background-color: #455965;
+  padding: 1rem;
+  text-transform: uppercase;
+}
+.headerPrev .part3 {
+  padding: 1rem;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-around;
+}
+.headerPrev .part3 svg {
+  height: 2rem;
+  width: 1.4rem;
+  color: #242629;
+}
+.headerPrev .part3 .french {
+  height: 1.6rem;
+  width: 2.5rem;
+}
+.headerPrev .part3 .french img {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.previewAside {
+  height: 91%;
+  background-color: #6a8ea4;
+  width: 25%;
+  color: #242629;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.previewAside ul {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: 100%; /* Assurez-vous que la ul ne dépasse pas sa hauteur maximale */
+  overflow-y: auto; /* Permettre le défilement vertical si le contenu dépasse la hauteur */
+  /* Styliser la barre de défilement pour Chrome, Safari, etc. */
+  /* Styliser la barre de défilement pour Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: #888 transparent; /* La couleur transparente pour le "track" masquera la barre de défilement sous-jacente */
+}
+.previewAside ul::-webkit-scrollbar {
+  width: 10px; /* Largeur de la barre de défilement */
+}
+.previewAside ul::-webkit-scrollbar-thumb {
+  background: #455965; /* Couleur de la "poignée" de la barre de défilement */
+}
+.previewAside ul li {
+  transition: background-color 0.3s;
+}
+.previewAside ul li:hover {
+  background-color: #87cefa;
+}
+.previewAside ul li:hover a,
+.previewAside ul li:hover p {
+  /* Changement de couleur du texte du lien et du paragraphe lors du survol de la li */
+  color: black;
+}
+.previewAside ul a {
+  transition: color 0.3s;
+  color: white;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  padding: 2rem 0; /* Example padding; adjust as needed */
+  margin: 0 -1px; /* Reset margins */
+}
+.previewAside ul a p {
+  font-size: 0.8rem;
+}
+.previewAside ul a svg {
+  width: 2rem;
+  height: 1rem;
+}
+
+.previewContent {
+  padding: 10px;
+}
+
+.hr {
+  border: 2px solid #7f9bac;
+}/*# sourceMappingURL=preview.css.map */

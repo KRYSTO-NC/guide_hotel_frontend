@@ -1,0 +1,44 @@
+@import '../../../SASS/reset';
+@import '../../../SASS/variables';
+
+.tooltip-container {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip-trigger {
+    margin-left: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.tooltip-text {
+    display: none;
+    position: absolute;
+    background-color: $dark;
+    color: #fff;
+    text-align: center;
+    padding: 2rem ;
+    border-radius: 6px;
+    z-index: 1;
+    font-size: 1rem;
+    width: 35rem;
+  
+    max-height: 80vh; 
+    overflow-y: auto;
+    
+    /* Pour centrer le texte verticalement et horizontalement */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+    /* Ajustements pour éviter que la tooltip ne déborde de la fenêtre */
+    top: auto; 
+    bottom: calc(100% + 5px); 
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.tooltip-container:hover .tooltip-text {
+    display: flex;
+}

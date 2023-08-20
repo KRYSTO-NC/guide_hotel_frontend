@@ -27,18 +27,19 @@
 //   padding-bottom: 2rem;
 // }
 
-// .heading {
-//   font-size: 1.5rem;
-//   font-weight: 700;
-//   margin-bottom: 30px;
-//   padding: 0 20px;
-//   color: $primary;
-// }
+.heading {
+  font-size: 1.7rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  padding: 0 20px;
+  color: $secondary;
+  margin-bottom: 5rem;
+}
 
-// .heading p {
-//   color: $dark;
-//   font-size: 1rem;
-// }
+.heading p {
+  color: $white;
+  font-size: 1.3rem;
+}
 
 // .boxes {
 //   display: grid;
@@ -67,87 +68,160 @@
 //   color: #777;
 // }
 
-// .form {
-//   width: 80%;
-//   margin: 0 auto;
-// }
+.form {
+  width: 90%;
+  margin: 0 auto;
+}
 
-// .form-group {
-//   margin-bottom: 10px;
-// }
+.form-group {
+  margin-bottom: 5px;
+}
 
-// .form-group input,
-// .form-group textarea,
-// .form-group select {
-//   width: 100%;
-//   padding: 10px;
-//   border: 1px solid #e6e6e6;
-//   border-radius: 5px;
-//   margin-bottom: 10px;
-//   font-family: inherit;
-// }
+.form-flex{
+  display: flex;
+  align-items: center;
 
-// textarea {
-//   height: 20rem;
-// }
+  .form-group{
+   width: 100%;
+   &:first-child {
+    margin-right: 20px;  /* Ajustez cette valeur selon votre besoin */
+  }
+  }
+}
 
-// .form-group label {
-//   text-align: left;
-//   display: block;
-//   margin: 0 0 5px 3px;
-// }
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-family: inherit;
+}
 
-// .btn {
-//   padding: 10px 20px;
 
-//   border-radius: 5px;
-//   background: $secondary;
-//   color: whitesmoke;
-//   font-size: 16px;
-//   font-weight: 700;
-//   cursor: pointer;
-//   text-align: center;
-//   /* appearance: button; */
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   margin: 1rem 0;
-// }
 
-// .btn svg {
-//   margin-right: 8px;
-// }
 
-// .btn-reverse {
-//   background: #fff;
-//   color: $dark;
-// }
+.form-group label {
+  text-align: left;
+  display: block;
+  margin: 0 0 5px 3px;
+}
 
-// .btn-block {
-//   width: 100%;
-//   margin-bottom: 20px;
-// }
 
-// .btn-sm {
-//   padding: 5px 1rem;
-//   font-size: 0.8rem;
-// }
+.checkbox-group {
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  font-size: 22px;
+  user-select: none;
+}
 
-// .btn-danger {
-//   background: $danger;
-//   border: none;
-//   color: white;
-// }
+.checkbox-group input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
 
-// .btn-back {
-//   width: 100px;
-//   margin-bottom: 10px;
-// }
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 4px;
+}
 
-// .btn:hover {
-//   transform: scale(0.98);
-//   box-shadow: $shadow;
-// }
+.checkbox-group:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.checkbox-group input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-group input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkbox-group .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 5px;
+  background: $secondary;
+  color: whitesmoke;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  /* appearance: button; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ max-width: 50rem;
+  margin: 1rem 0;
+}
+
+.btn svg {
+  margin-right: 8px;
+}
+
+.btn-reverse {
+  background: $dark;
+  color: $white;
+}
+
+.btn-block {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.btn-sm {
+  padding: 5px 1rem;
+  font-size: 0.8rem;
+}
+
+.btn-danger {
+  background: $danger;
+  border: none;
+  color: white;
+}
+.btn-ok {
+  background: $green;
+  border: none;
+  color: $white;
+}
+
+.btn-back {
+  width: 100px;
+  margin-bottom: 10px;
+}
+
+.btn:hover {
+  transform: scale(0.98);
+  box-shadow: $shadow;
+}
 
 // .ticket-created {
 //   border: 1px solid #e6e6e6;
