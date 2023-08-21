@@ -1,74 +1,74 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import roomService from './roomService'
+import eventCalendarService from './eventCalendarService'
 
-const initialRoomState = {
-  rooms: [],
-  room: {},
+const initialState = {
+  events: [],
+  event: {},
   isError: false,
   isSuccess: false,
   isLoading: false,
   message: '',
 }
 
-// Get all rooms
-export const getRooms = createAsyncThunk(
-  'room/getRooms',
+// Get all events
+export const getEvents = createAsyncThunk(
+  'event/getEvents',
   async (_, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user
-      return await roomService.getRooms(token)
+      return await eventCalendarService.getEvents(token)
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message)
     }
   },
 )
 
-// Get single room
-export const getRoom = createAsyncThunk(
-  'room/getRoom',
+// Get single event
+export const getEvent = createAsyncThunk(
+  'event/getEvent',
   async (id, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user
-      return await roomService.getRoom(id, token)
+      return await eventCalendarService.getEvent(id, token)
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message)
     }
   },
 )
 
-// Create new room
-export const createRoom = createAsyncThunk(
-  'room/createRoom',
+// Create new event
+export const createEvent = createAsyncThunk(
+  'event/createEvent',
   async (data, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user
-      return await roomService.createRoom(data, token)
+      return await eventCalendarService.createEvent(data, token)
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message)
     }
   },
 )
 
-// Update room
-export const updateRoom = createAsyncThunk(
-  'room/updateRoom',
+// Update event
+export const updateEvent = createAsyncThunk(
+  'event/updateEvent',
   async ({ id, data }, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user
-      return await roomService.updateRoom(id, data, token)
+      return await eventCalendarService.updateEvent(id, data, token)
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message)
     }
   },
 )
 
-// Delete room
-export const deleteRoom = createAsyncThunk(
-  'room/deleteRoom',
+// Delete event
+export const deleteEvent = createAsyncThunk(
+  'event/deleteEvent',
   async (id, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user
-      await roomService.deleteRoom(id, token)
+      await eventCalendarService.deleteEvent(id, token)
       return id
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message)
@@ -76,81 +76,83 @@ export const deleteRoom = createAsyncThunk(
   },
 )
 
-export const roomSlice = createSlice({
-  name: 'room',
-  initialState: initialRoomState,
+export const eventCalendarSlice = createSlice({
+  name: 'event',
+  initialState,
   reducers: {
-    resetRoom: (state) => initialRoomState,
+    resetEvent: (state) => initialState,
   },
   extraReducers: (builder) => {
     builder
-      .addCase(getRooms.pending, (state) => {
+      .addCase(getEvents.pending, (state) => {
         state.isLoading = true
       })
-      .addCase(getRooms.fulfilled, (state, action) => {
+      .addCase(getEvents.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.rooms = action.payload
+        state.events = action.payload
       })
-      .addCase(getRooms.rejected, (state, action) => {
+      .addCase(getEvents.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload
       })
 
-      .addCase(getRoom.pending, (state) => {
+      .addCase(getEvent.pending, (state) => {
         state.isLoading = true
       })
-      .addCase(getRoom.fulfilled, (state, action) => {
+      .addCase(getEvent.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.room = action.payload
+        state.event = action.payload
       })
-      .addCase(getRoom.rejected, (state, action) => {
+      .addCase(getEvent.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload
       })
 
-      .addCase(createRoom.pending, (state) => {
+      .addCase(createEvent.pending, (state) => {
         state.isLoading = true
       })
-      .addCase(createRoom.fulfilled, (state, action) => {
+      .addCase(createEvent.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.rooms.push(action.payload)
+        state.events.push(action.payload)
       })
-      .addCase(createRoom.rejected, (state, action) => {
+      .addCase(createEvent.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload
       })
 
-      .addCase(updateRoom.pending, (state) => {
+      .addCase(updateEvent.pending, (state) => {
         state.isLoading = true
       })
-      .addCase(updateRoom.fulfilled, (state, action) => {
+      .addCase(updateEvent.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.rooms = state.rooms.map((room) =>
-          room.id === action.payload.id ? action.payload : room,
+        state.events = state.events.map((event) =>
+          event.id === action.payload.id ? action.payload : event,
         )
       })
-      .addCase(updateRoom.rejected, (state, action) => {
+      .addCase(updateEvent.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload
       })
 
-      .addCase(deleteRoom.pending, (state) => {
+      .addCase(deleteEvent.pending, (state) => {
         state.isLoading = true
       })
-      .addCase(deleteRoom.fulfilled, (state, action) => {
+      .addCase(deleteEvent.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.rooms = state.rooms.filter((room) => room.id !== action.payload)
+        state.events = state.events.filter(
+          (event) => event.id !== action.payload,
+        )
       })
-      .addCase(deleteRoom.rejected, (state, action) => {
+      .addCase(deleteEvent.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload
@@ -158,5 +160,5 @@ export const roomSlice = createSlice({
   },
 })
 
-export const { resetRoom } = roomSlice.actions
-export default roomSlice.reducer
+export const { resetEvent } = eventCalendarSlice.actions
+export default eventCalendarSlice.reducer

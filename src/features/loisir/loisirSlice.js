@@ -1,74 +1,74 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import roomService from './roomService'
+import loisirService from './loisirService'
 
-const initialRoomState = {
-  rooms: [],
-  room: {},
+const initialState = {
+  loisirs: [],
+  loisir: {},
   isError: false,
   isSuccess: false,
   isLoading: false,
   message: '',
 }
 
-// Get all rooms
-export const getRooms = createAsyncThunk(
-  'room/getRooms',
+// Get all loisirs
+export const getLoisirs = createAsyncThunk(
+  'loisir/getLoisirs',
   async (_, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user
-      return await roomService.getRooms(token)
+      return await loisirService.getLoisirs(token)
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message)
     }
   },
 )
 
-// Get single room
-export const getRoom = createAsyncThunk(
-  'room/getRoom',
+// Get single loisir
+export const getLoisir = createAsyncThunk(
+  'loisir/getLoisir',
   async (id, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user
-      return await roomService.getRoom(id, token)
+      return await loisirService.getLoisir(id, token)
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message)
     }
   },
 )
 
-// Create new room
-export const createRoom = createAsyncThunk(
-  'room/createRoom',
+// Create new loisir
+export const createLoisir = createAsyncThunk(
+  'loisir/createLoisir',
   async (data, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user
-      return await roomService.createRoom(data, token)
+      return await loisirService.createLoisir(data, token)
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message)
     }
   },
 )
 
-// Update room
-export const updateRoom = createAsyncThunk(
-  'room/updateRoom',
+// Update loisir
+export const updateLoisir = createAsyncThunk(
+  'loisir/updateLoisir',
   async ({ id, data }, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user
-      return await roomService.updateRoom(id, data, token)
+      return await loisirService.updateLoisir(id, data, token)
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message)
     }
   },
 )
 
-// Delete room
-export const deleteRoom = createAsyncThunk(
-  'room/deleteRoom',
+// Delete loisir
+export const deleteLoisir = createAsyncThunk(
+  'loisir/deleteLoisir',
   async (id, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user
-      await roomService.deleteRoom(id, token)
+      await loisirService.deleteLoisir(id, token)
       return id
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message)
@@ -76,81 +76,79 @@ export const deleteRoom = createAsyncThunk(
   },
 )
 
-export const roomSlice = createSlice({
-  name: 'room',
-  initialState: initialRoomState,
+export const loisirSlice = createSlice({
+  name: 'loisir',
+  initialState,
   reducers: {
-    resetRoom: (state) => initialRoomState,
+    resetLoisir: (state) => initialState,
   },
   extraReducers: (builder) => {
     builder
-      .addCase(getRooms.pending, (state) => {
+      .addCase(getLoisirs.pending, (state) => {
         state.isLoading = true
       })
-      .addCase(getRooms.fulfilled, (state, action) => {
+      .addCase(getLoisirs.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.rooms = action.payload
+        state.loisirs = action.payload
       })
-      .addCase(getRooms.rejected, (state, action) => {
+      .addCase(getLoisirs.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload
       })
-
-      .addCase(getRoom.pending, (state) => {
+      .addCase(getLoisir.pending, (state) => {
         state.isLoading = true
       })
-      .addCase(getRoom.fulfilled, (state, action) => {
+      .addCase(getLoisir.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.room = action.payload
+        state.loisir = action.payload
       })
-      .addCase(getRoom.rejected, (state, action) => {
+      .addCase(getLoisir.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload
       })
-
-      .addCase(createRoom.pending, (state) => {
+      .addCase(createLoisir.pending, (state) => {
         state.isLoading = true
       })
-      .addCase(createRoom.fulfilled, (state, action) => {
+      .addCase(createLoisir.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.rooms.push(action.payload)
+        state.loisirs.push(action.payload)
       })
-      .addCase(createRoom.rejected, (state, action) => {
+      .addCase(createLoisir.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload
       })
-
-      .addCase(updateRoom.pending, (state) => {
+      .addCase(updateLoisir.pending, (state) => {
         state.isLoading = true
       })
-      .addCase(updateRoom.fulfilled, (state, action) => {
+      .addCase(updateLoisir.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.rooms = state.rooms.map((room) =>
-          room.id === action.payload.id ? action.payload : room,
+        state.loisirs = state.loisirs.map((loisir) =>
+          loisir.id === action.payload.id ? action.payload : loisir,
         )
       })
-      .addCase(updateRoom.rejected, (state, action) => {
+      .addCase(updateLoisir.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload
       })
-
-      .addCase(deleteRoom.pending, (state) => {
+      .addCase(deleteLoisir.pending, (state) => {
         state.isLoading = true
       })
-      .addCase(deleteRoom.fulfilled, (state, action) => {
+      .addCase(deleteLoisir.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.rooms = state.rooms.filter((room) => room.id !== action.payload)
+        state.loisirs = state.loisirs.filter(
+          (loisir) => loisir.id !== action.payload,
+        )
       })
-      .addCase(deleteRoom.rejected, (state, action) => {
+      .addCase(deleteLoisir.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload
@@ -158,5 +156,5 @@ export const roomSlice = createSlice({
   },
 })
 
-export const { resetRoom } = roomSlice.actions
-export default roomSlice.reducer
+export const { resetLoisir } = loisirSlice.actions
+export default loisirSlice.reducer

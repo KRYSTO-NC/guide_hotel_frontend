@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = process.env.REACT_APP_BASE_API_URL + '/rooms'
+const API_URL = process.env.REACT_APP_BASE_API_URL + '/sos'
 
 const getConfig = (token) => {
   return {
@@ -10,26 +10,26 @@ const getConfig = (token) => {
   }
 }
 
-// Get all rooms
-const getRooms = async (token) => {
+// Get all sos entries
+const getSosEntries = async (token) => {
   const response = await axios.get(API_URL, getConfig(token))
   return response.data
 }
 
-// Get single room
-const getRoom = async (id, token) => {
+// Get single sos entry
+const getSos = async (id, token) => {
   const response = await axios.get(`${API_URL}/${id}`, getConfig(token))
   return response.data
 }
 
-// Create a new room
-const createRoom = async (roomData, token) => {
-  const response = await axios.post(API_URL, roomData, getConfig(token))
+// Create a new sos entry
+const createSos = async (sosData, token) => {
+  const response = await axios.post(API_URL, sosData, getConfig(token))
   return response.data
 }
 
-// Update a room
-const updateRoom = async (id, updatedData, token) => {
+// Update a sos entry
+const updateSos = async (id, updatedData, token) => {
   const response = await axios.put(
     `${API_URL}/${id}`,
     updatedData,
@@ -38,18 +38,18 @@ const updateRoom = async (id, updatedData, token) => {
   return response.data
 }
 
-// Delete a room
-const deleteRoom = async (id, token) => {
+// Delete a sos entry
+const deleteSos = async (id, token) => {
   const response = await axios.delete(`${API_URL}/${id}`, getConfig(token))
   return response.data
 }
 
-const roomService = {
-  getRooms,
-  getRoom,
-  createRoom,
-  updateRoom,
-  deleteRoom,
+const sosService = {
+  getSosEntries,
+  getSos,
+  createSos,
+  updateSos,
+  deleteSos,
 }
 
-export default roomService
+export default sosService
